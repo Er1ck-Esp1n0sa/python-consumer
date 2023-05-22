@@ -37,7 +37,7 @@ except:
     print("Could not connect to MongoDB")
 
 consumer = KafkaConsumer('test',bootstrap_servers=[
-     'my-kafka-0.my-kafka-headless.er1ck-esp1n0sa.svc.cluster.local:9092'
+    'my-kafka-0.my-kafka-headless.er1ck-esp1n0sa.svc.cluster.local:9092'
     ])
 # Parse received data from Kafka
 for msg in consumer:
@@ -47,12 +47,12 @@ for msg in consumer:
 
     # Create dictionary and ingest data into MongoDB
     try:
-       meme_rec = {'name':name }
-       print (meme_rec)
-       meme_id = db.memes_info.insert_one(meme_rec)
-       print("Data inserted with record ids", meme_id)
+      meme_rec = {'name':name }
+      print (meme_rec)
+      meme_id = db.memes_info.insert_one(meme_rec)
+      print("Data inserted with record ids", meme_id)
 
-       subprocess.call(['sh', './test.sh'])
+      subprocess.call(['sh', './test.sh'])
 
     except:
        print("Could not insert into MongoDB")
