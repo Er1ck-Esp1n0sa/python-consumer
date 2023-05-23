@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 
 #uri = "mongodb+srv://adsoft:adsoft-sito@cluster0.kzghgph.mongodb.net/?retryWrites=true&w=majority"
-uri = "mongodb+srv://adsoft:adsoft-sito@cluster0.kzghgph.mongodb.net/memes?retryWrites=true&w=majority"
+uri = "mongodb+srv://erick:Elperro123@nosql2.9sde4vg.mongodb.net/?retryWrites=true&w=majority"
 
 if __name__ == "__main__":
     spark = SparkSession\
@@ -20,8 +20,8 @@ if __name__ == "__main__":
     df = spark.read\
     .format("mongodb")\
     .option("uri", uri)\
-    .option("database","memes")\
-    .option("collection", "memes_info")\
+    .option("database","nosql2")\
+    .option("collection", "soccer_info")\
     .load()
 
     #.format("com.mongodb.spark.sql.DefaultSource")\
