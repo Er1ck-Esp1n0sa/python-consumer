@@ -8,7 +8,7 @@ from pymongo.server_api import ServerApi
 
 import json
 
-uri = "mongodb+srv://erick:Elperro123@nosql2.9sde4vg.mongodb.net/?retryWrites=true&w=majority";
+uri = "mongodb+srv://erick:1234@python.aj67na4.mongodb.net/?retryWrites=true&w=majority";
 #Local = "mongodb://127.0.0.1:27017"
 #URL del profe = "mongodb+srv://adsoft:adsoft-sito@cluster0.kzghgph.mongodb.net/?retryWrites=true&w=majority"
 
@@ -29,7 +29,7 @@ try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 
-    db = client.nosql2
+    db = client.python
     print("MongoDB Connected successfully!")
 except:
     print("Could not connect to MongoDB")
