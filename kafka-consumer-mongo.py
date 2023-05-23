@@ -23,7 +23,7 @@ uri = "mongodb+srv://erick:Elperro123@nosql2.9sde4vg.mongodb.net/?retryWrites=tr
 #    print(e)
 
 # Connect to MongoDB and pizza_data database
-
+print (uri)
 try:
     client = MongoClient(uri)
     client.admin.command('ping')
