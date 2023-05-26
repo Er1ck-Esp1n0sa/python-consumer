@@ -42,25 +42,25 @@ for msg in consumer:
     name = record['name']
 
     # Create dictionary and ingest data into MongoDB
-    #try:
-     #  meme_rec = {'name':name }
-      # print (meme_rec)
-       #meme_id = db.soccer_info.insert_one(meme_rec)
-       #print("Data inserted with record ids", meme_id)
-    #except:
-     #  print("Could not insert into MongoDB")
+    try:
+       meme_rec = {'name':name }
+       print (meme_rec)
+       meme_id = db.soccer_info.insert_one(meme_rec)
+       print("Data inserted with record ids", meme_id)
+    except:
+       print("Could not insert into MongoDB")
 
 # create fut_sumari and inserte groups into MonngoDB
 try:
-        agg_result = db.soccer_info.aggregate(
-            [{
-              "$group":
-              {  "_id": "$name",
-                 "n"   : {"$sum": 1}
-                }}
-            ])
-        db.soccer_summary.delete_many({})
-        for i in agg_result:
+    agg_result= db.soccer_info.aggregate(
+    [{
+      "$group" :
+      {  "_id" : "$name",
+         "n"   : {"$sum": 1}
+      }}
+    ])
+    db.soccer_summary.delete_many({})
+    for i in agg_result:
             print(i)
             summary_id = db.soccer_sumamary.insert_one(i)
             print ("Summary inserted with record ids", summary_id)
