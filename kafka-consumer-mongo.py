@@ -52,17 +52,17 @@ for msg in consumer:
 
 # create fut_sumari and inserte groups into MonngoDB
 try:
-        agg_result = db.python_info.aggregate(
+        agg_result = db.soccer_info.aggregate(
             [{
               "$group":
               {  "_id": "$name",
                  "n"   : {"$sum": 1}
                 }}
             ])
-        db.python_summary.delete_many({})
+        db.soccer_summary.delete_many({})
         for i in agg_result:
             print(i)
-            summary_id = db.python_sumamary.insert_one(i)
+            summary_id = db.soccer_sumamary.insert_one(i)
             print ("Summary inserted with record ids", summary_id)
 
 except Exception as e:
