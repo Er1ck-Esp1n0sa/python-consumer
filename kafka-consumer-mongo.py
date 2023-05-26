@@ -51,12 +51,12 @@ for msg in consumer:
        print("Could not insert into MongoDB")
 
 # create fut_sumari and inserte groups into MonngoDB
-    try:
+try:
         agg_result = db.python_info.aggregate(
             [{
-                "$group":
-                {  "_id": "$name",
-                   "n"   : {"$sum":1}
+              "$group":
+              {  "_id": "$name",
+                 "n"   : {"$sum": 1}
                 }}
             ])
         db.python_summary.delete_many({})
@@ -65,6 +65,6 @@ for msg in consumer:
             summary_id = db.python_sumamary.insert_one(i)
             print ("Summary inserted with record ids", summary_id)
 
-    except Exception as e:
+except Exception as e:
         print(f'group by caught {type(e): }')
         print(e)
