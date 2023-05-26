@@ -42,13 +42,13 @@ for msg in consumer:
     name = record['name']
 
     # Create dictionary and ingest data into MongoDB
-    try:
-       meme_rec = {'name':name }
-       print (meme_rec)
-       meme_id = db.soccer_info.insert_one(meme_rec)
-       print("Data inserted with record ids", meme_id)
-    except:
-       print("Could not insert into MongoDB")
+    #try:
+     #  meme_rec = {'name':name }
+      # print (meme_rec)
+       #meme_id = db.soccer_info.insert_one(meme_rec)
+       #print("Data inserted with record ids", meme_id)
+    #except:
+     #  print("Could not insert into MongoDB")
 
 # create fut_sumari and inserte groups into MonngoDB
 try:
